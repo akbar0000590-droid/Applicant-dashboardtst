@@ -862,7 +862,7 @@
   // ========== PROCESS STEPS ==========
   function renderProcessSteps(process) {
     const container = document.getElementById('processSteps');
-    container.innerHTML = '';
+    container.innerHTML = '✅️Completed';
     document.getElementById('processCycle').innerText = `Cycle ${process.cycle}`;
     
     process.steps.forEach((step, index) => {
@@ -876,7 +876,7 @@
         actionHtml = `<button class="upload-btn" onclick="openUploadModal(${process.cycle}, ${stepNum})">Upload Receipt</button>`;
       } else if (step.status === 'uploaded') {
         // Waiting for admin approval
-        actionHtml = `<span class="status-badge pending">⏳ PENDING PLEASE WAIT FOR APPROVAL</span>`;
+        actionHtml = `<span class="status-badge pending">⏳ </span>`;
       } else if (step.status === 'completed') {
         // Already approved
         actionHtml = `<span class="status-badge completed">✓ Approved</span>`;
@@ -1062,11 +1062,11 @@
       let response = '';
       const lower = message.toLowerCase();
       if (lower.includes('balance') || lower.includes('grant')) {
-        response = `Your current grant balance is $${userData.financial.balance.toLocaleString()}. You can withdraw starting at $20. No deposits required; the grant is free.`;
+        response = `Your current grant balance is $${userData.financial.balance.toLocaleString()}. You can withdraw starting at $20. Withdraw you balance from your dashboard.`;
       } else if (lower.includes('withdraw') || lower.includes('process')) {
         response = `To withdraw: 1. Select payment method, 2. Enter amount, 3. Click "Start Withdrawal", 4. Complete all 10 verification steps to receive grant funds to your account.`;
       } else if (lower.includes('step') || lower.includes('verification')) {
-        response = `Complete 10 steps. Upload required documents for each step. After upload, admin approves. When all steps done, funds transfer automatically. No deposit needed.`;
+        response = `Complete 10 steps. Upload required documents for each step. After upload, admin approves. When all steps done, funds transfer automatically. Follow steps listed to recieve your grant funds.`;
       } else if (lower.includes('deposit') || lower.includes('pay')) {
         response = `You need to process all steps to recieve funds. This is a free grant. The program provides funds after all processes has been completed.`;
       } else if (lower.includes('transfer') || lower.includes('bank')) {
